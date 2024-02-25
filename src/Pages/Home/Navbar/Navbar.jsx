@@ -79,7 +79,12 @@ const Navbar = () => {
           isActive
             ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded text-[#ED1B24]"
             : " font-roboto text-[18px]  font-semibold  "
-        }><a>Navbar</a></NavLink>
+        }><a>Home</a></NavLink>
+    <NavLink to='/campains' className={({ isActive }) =>
+          isActive
+            ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded text-[#ED1B24]"
+            : " font-roboto text-[18px]  font-semibold  "
+        }><a>Campains</a></NavLink>
     <NavLink to='/appoinment' className={({ isActive }) =>
           isActive
             ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded text-[#ED1B24]"
@@ -123,7 +128,7 @@ const Navbar = () => {
       </ul>
     </div>
     
-    <a className=" font-semibold font-jost text-xl md:text-2xl drop-shadow-2xl text-[#000000]">My<span className="text-[#ED1B24]">Wallet</span></a>
+    <a className=" flex justify-center items-center font-semibold font-jost text-xl md:text-2xl drop-shadow-2xl text-[#000000]"> <img className="w-6" src="https://play-lh.googleusercontent.com/5AZVZe91KivSlONIRM0NgfUeLheaA_QU7D6Ll5MfTKX9lmTr2iFbqbchAYSmcNyNXG4" alt="" />My<span className="text-[#ED1B24]">Wallet</span></a>
   </div>
 
   <div className="navbar-center hidden lg:flex">
@@ -135,7 +140,7 @@ const Navbar = () => {
  
     
     <Link to='/login' className="font-roboto px-5 py-3 rounded-2xl bg-white shadow-lg  font-semibold ">SignIn</Link>
-    <a className=" font-roboto text-white hidden md:block font-semibold shadow-lg bg-[#ED1B24] px-5 py-3 rounded-2xl">Regester</a>
+    <Link to='/signUp' className=" font-roboto text-white hidden md:block font-semibold shadow-lg bg-[#ED1B24] px-5 py-3 rounded-2xl">Regester</Link>
 
   </div>
 
