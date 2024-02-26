@@ -2,10 +2,11 @@ import { useForm } from "react-hook-form";
 import Aos from "aos";
 import { useEffect, useState } from "react";
 import "aos/dist/aos.css";
-// import useAuth from "../../Hooks/useAuth";
 import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Home/Navbar/Navbar";
+import useAuth from "../../Hooks/useAuth";
+import  { axiosPublic } from "../../Hooks/useaxiosPublic";
 // import AboutUsBanner from "../Services/AboutUsBanner";
 // import Footer from "../Footer/Footer";
 
@@ -21,7 +22,7 @@ const SignUp = () => {
     setActiveTab(index);
   };
 
-//   const { createUser } = useAuth();
+  const { createUser } = useAuth();
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -34,21 +35,33 @@ const SignUp = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     const email = data.email;
     const password = data.password;
     const role = activeTab;
     console.log(role);
-   
 
-    // createUser(email, password)
-    //   .then((result) => {
-    //     console.log(result);
-    //     navigate(from,{replace:true});
-    //   })
-    //   .then((error) => {
-    //     console.log(error);
-    //   });
+    const userInfo ={
+        data
+    }
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result);
+        navigate(from,{replace:true});
+        alert('User Create SuccesFull')
+
+    
+
+        axiosPublic.post('/users',data)
+        .then(res=>console.log(res))
+
+
+
+      })
+      .then((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -170,7 +183,7 @@ const SignUp = () => {
                   className="h-9 w-full rounded-md  border px-3 py-6 text-sm text-[#ED1B24]"
                   placeholder="5 digit PIN"
                   required=""
-                  {...register("nic", { required: true, maxLength: 20 })}
+                  {...register("password", { required: true, maxLength: 6 })}
                 />
               </div>
 
@@ -180,7 +193,7 @@ const SignUp = () => {
                   className="h-9 w-full border rounded-md px-3 py-6 text-sm text-[#ED1B24]"
                   placeholder="NID"
                   required=""
-                  {...register("dateofBrith", {
+                  {...register("NID", {
                     required: true,
                     maxLength: 20,
                   })}
@@ -194,7 +207,7 @@ const SignUp = () => {
               </div>
             </div>
 
-           
+                  
 
             <label className="mb-1 flex pb-4 font-medium">
               <input type="checkbox" name="checkbox-3" />
@@ -208,6 +221,7 @@ const SignUp = () => {
                 </a>
               </span>
             </label>
+          
             <input
              
                     value='Regester'
@@ -216,6 +230,7 @@ const SignUp = () => {
             ></input>
           </form>
         </div>
+       
       </div>
   
     </section>
