@@ -16,7 +16,15 @@ const AuthProviders = ({children}) => {
        return createUserWithEmailAndPassword(auth, email, password)
     }
 
+    const sighnIn = (email,password)=>{
+        setloading(true)
+        return signInWithEmailAndPassword(auth,email,password)
+    }
 
+    const logout = ()=>{
+        setloading(true)
+        return signOut(auth)
+    }
 
 
     useEffect(()=>{
@@ -36,7 +44,9 @@ const AuthProviders = ({children}) => {
     const userInfo = {
         user,
         loading,
-        createUser
+        createUser,
+        sighnIn,
+        logout
         
     }
     

@@ -1,15 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
 // import logo from '../../../../public/Logo/Standard Collection 12.png'
-// import useAuth from "../../../Hooks/useAuth";
+import useAuth from "../../../Hooks/useAuth";
 import { useEffect, useRef, useState } from "react";
+import logo from '../../../assets/Logo/logo.png'
 
 
 
 const Navbar = () => {
-  // const {user}=useAuth();
+  const {user, logout}=useAuth();
 
 
 
+
+  const handleLogout = () =>{
+      logout()
+  }
 
 
 
@@ -50,7 +55,7 @@ const Navbar = () => {
 
 
   
-  // console.log(user);
+  console.log(user?.email);
   const profile =  <div className="relative" ref={dropdownRef}>
   <button
     className="btn btn-ghost btn-circle avatar"
@@ -67,9 +72,9 @@ const Navbar = () => {
   </button>
   {isOpen && (
     <div className="absolute top-full right-0 mt-1 p-2 shadow bg-white rounded w-52 z-10">
-      <a href="#" className="block px-4 py-2 hover:bg-gray-100">Profile <span className="badge bg-blue-500 text-white">New</span></a>
+      <a href="#" className="block px-4 py-2 hover:bg-gray-100">{user?.email} <span className="badge bg-blue-500 text-white">New</span></a>
       <a href="#" className="block px-4 py-2 hover:bg-gray-100">Settings</a>
-      <a href="#" className="block px-4 py-2 hover:bg-gray-100">Logout</a>
+      <a onClick={handleLogout} href="#" className="block px-4 py-2 hover:bg-gray-100">Logout</a>
     </div>
   )}
 </div>
@@ -128,21 +133,27 @@ const Navbar = () => {
       </ul>
     </div>
     
-    <a className=" flex justify-center items-center font-semibold font-jost text-xl md:text-2xl drop-shadow-2xl text-[#000000]"> <img className="w-6" src="https://play-lh.googleusercontent.com/5AZVZe91KivSlONIRM0NgfUeLheaA_QU7D6Ll5MfTKX9lmTr2iFbqbchAYSmcNyNXG4" alt="" />My<span className="text-[#ED1B24]">Wallet</span></a>
+    <a className=" flex justify-center items-center font-semibold font-jost text-xl md:text-2xl drop-shadow-2xl text-[#000000]"> <img className="w-6" src={logo} alt="" />My<span className="text-[#ED1B24]">Wallet</span></a>
   </div>
 
-  <div className="navbar-center hidden lg:flex">
+  <div className="navbar-center lg:-ml-96 hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
      {navLink}
     </ul>
   </div>
-  <div className="navbar-end flex lg:mr-10 gap-5">
- 
-    
-    <Link to='/login' className="font-roboto px-5 py-3 rounded-2xl bg-white shadow-lg  font-semibold ">SignIn</Link>
-    <Link to='/signUp' className=" font-roboto text-white hidden md:block font-semibold shadow-lg bg-[#ED1B24] px-5 py-3 rounded-2xl">Regester</Link>
 
+  <div >
+    {
+      user? <div className="navbar-end flex md:ml-96 ml-32  gap-5">{profile}</div> :<div className="navbar-end flex lg:mr-10 gap-5 ml-32 md:ml-96">
+     
+    
+      <Link to='/login' className="font-roboto px-5 py-3 rounded-2xl bg-white shadow-lg  font-semibold ">SignIn</Link>
+      <Link to='/signUp' className=" font-roboto text-white hidden md:block font-semibold shadow-lg bg-[#ED1B24] px-5 py-3 rounded-2xl">Regester</Link>
+  
+    </div>
+    }
   </div>
+  
 
   
 

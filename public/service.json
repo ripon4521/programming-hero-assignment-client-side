@@ -1,0 +1,36 @@
+[
+    {
+     
+      "date": "2024-02-26T10:30:00",
+      "image":"https://i.ibb.co/9rCjn3d/Payment.png",
+      "type": "Send Money",
+      "description": "Send Money from My Wallet for any country and any number"
+     
+    },
+    {
+     
+      "date": "2024-02-26T10:30:00",
+      "image":"https://i.ibb.co/fFRSPBS/cashout.jpg",
+      "type": "Cash Out",
+      "description": "Withdraw cash anytime from the largest agent and atm network"
+     
+    },
+    {
+  
+      "date": "2024-02-26T10:30:00",
+      "image":"https://i.ibb.co/sQ5b2Cr/Blance-Incuary.png",
+      "type": "Blance Incuary",
+      "description": "How much Payment is now much easier through the My Wallet"
+     
+    },
+    {
+    
+      "date": "2024-02-26T10:30:00",
+      "image":"https://i.ibb.co/jLdXNs2/transtion.jpg",
+      "type": "Transction",
+      "description": "You can see Easily Your Last 100 Transction"
+     
+    }
+   
+  ]
+  

@@ -1,5 +1,5 @@
 
-import banner from '../../../assets/Banner/McSP_websitebanner_1325x360_tonga.png'
+import banner from '../../../assets/Banner/Banner.jpg'
 const Banner = () => {
     return (
         <div className='w-full pt-20'>
