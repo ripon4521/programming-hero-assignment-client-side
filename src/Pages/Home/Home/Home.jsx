@@ -1,6 +1,9 @@
-import Banner from "../Banner/Banner";
+// import Banner from "../Banner/Banner";
+
+import CaruselBanner from "../Banner/CaruselBanner/CaruselBanner";
 import FrontCover from "../FrontCover/FrontCover";
 import Navbar from "../Navbar/Navbar";
+import Services from "../Services/Services";
 
 
 const Home = () => {
@@ -8,7 +11,8 @@ const Home = () => {
         <div>
             <FrontCover></FrontCover>
            <Navbar></Navbar>
-           <Banner></Banner>
+       <CaruselBanner></CaruselBanner>
+           <Services></Services>
         </div>
     );
 };

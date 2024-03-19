@@ -6,16 +6,16 @@ import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Home/Navbar/Navbar";
 import useAuth from "../../Hooks/useAuth";
-import  { axiosPublic } from "../../Hooks/useaxiosPublic";
+import { axiosPublic } from "../../Hooks/useaxiosPublic";
 // import AboutUsBanner from "../Services/AboutUsBanner";
 // import Footer from "../Footer/Footer";
 
 const SignUp = () => {
   const [activeTab, setActiveTab] = useState(0);
   const location = useLocation();
-  
+  const [bounce, setBounce] = useState('0');
 
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
 
   const handleTabClick = (index) => {
@@ -33,41 +33,63 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+ 
+
 
   const onSubmit = (data) => {
-    // console.log(data);
+    console.log(data);
     const email = data.email;
     const password = data.password;
-    const role = activeTab;
-    console.log(role);
+ 
 
-    const userInfo ={
-        data
+   
+    if (activeTab === "User") {
+        const accountBlance = 10000;
+        setBounce(accountBlance);
+    } else {
+        
+            const accountBlance = 40 ;
+            setBounce(accountBlance);
+      
     }
+   
+    const userInfo = {
+        data, bounce
+    }
+   
+    console.log(userInfo)
+  
 
-    createUser(email, password)
-      .then((result) => {
-        console.log(result);
-        navigate(from,{replace:true});
-        alert('User Create SuccesFull')
+    // createUser(email, password)
+    //   .then((result) => {
+    //     console.log(result);
+    //     navigate(from, { replace: true });
+    //     alert("User Create SuccesFull");
+    //     // const blance = bounce;
+    //     // const userInfo = {
+        
+    //     //     email : data.email,
+    //     //     password : data.password,
+    //     //     mobileNumber :data.mobileNumber,
+    //     //     firstName : data.firstName,
+    //     //     lastName : data.lastName,
+    //     //     NID : data.NID,
+    //     //     blance
 
-    
-
-        axiosPublic.post('/users',data)
-        .then(res=>console.log(res))
-
-
-
-      })
-      .then((error) => {
-        console.log(error);
-      });
+        
+    //     // };
+    //     // console.log(userInfo);
+    //     axiosPublic.post("/users", userInfo).then((res) => console.log(res));
+    //   })
+    //   .then((error) => {
+    //     console.log(error);
+    //   });
   };
 
   return (
     <section className="">
-    {/* <AboutUsBanner></AboutUsBanner> */}
-    <Navbar></Navbar>
+      {/* <AboutUsBanner></AboutUsBanner> */}
+      <Navbar></Navbar>
       <div
         data-aos="zoom-in"
         className="mx-auto  w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32"
@@ -80,19 +102,30 @@ const SignUp = () => {
             <h3 className="font-roboto text-2xl text-[#ED1B24] drop-shadow-md font-semibold mt-3">
               Please Sign Up To Continue
             </h3>
-            <p className="mx-auto mb-12 font-roboto mt-4 max-w-xl text-[#ED1B24] drop-shadow-md">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since.
-            </p>
+            
           </div>
 
           <form
+
+
             onSubmit={handleSubmit(onSubmit)}
             className="mb-4 text-left sm:px-4 md:px-20"
             name="wf-form-name"
             method="get"
           >
+
+<p className="mx-auto mb-12 font-roboto mt-4 max-w-xl text-[#ED1B24] drop-shadow-md">
+              Create A User New Account and Get{" "}
+              <span   id="userBounce" className="text-2xl font-bold">
+                40
+              </span>
+              Tk Bounce Blance . Agent to get{" "}
+              <span className="text-2xl font-bold">
+                100000
+              </span>
+              Tk Cash In Blance.
+            </p>
+
             <motion.div className="float-right  -mt-20 rounded-t-2xl     mb-5 bg-gray-200">
               <div role="tablist" className="tabs tabs-boxed ">
                 {["Agent", "User"].map((tabIndex) => (
@@ -205,15 +238,15 @@ const SignUp = () => {
                   </span>
                 )}
               </div>
-            </div>
 
-                  
+            
+            </div>
 
             <label className="mb-1 flex pb-4 font-medium">
               <input type="checkbox" name="checkbox-3" />
               <span
                 className="ml-4 inline-block cursor-pointer text-sm "
-                for="checkbox-3"
+                
               >
                 I agree with the{" "}
                 <a href="#" className="font-bold text-[#ED1B24]">
@@ -221,18 +254,15 @@ const SignUp = () => {
                 </a>
               </span>
             </label>
-          
+
             <input
-             
-                    value='Regester'
+              value="Regester"
               type="Submit"
               className="px-6 w-56 flex drop-shadow-md justify-center cursor-pointer mx-auto ease-in duration-300 py-2 bg-[#ED1B24] text-xl font-roboto font-semibold text-white rounded-xl mt-5"
             ></input>
           </form>
         </div>
-       
       </div>
-  
     </section>
   );
 };
