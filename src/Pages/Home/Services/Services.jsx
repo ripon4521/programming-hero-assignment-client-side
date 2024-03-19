@@ -1,4 +1,5 @@
 import useServices from "../../../Hooks/useServices";
+import Card from "./Card/Card";
 import ServicesCard from "./ServicesCard";
 
 
@@ -14,7 +15,7 @@ const Services = () => {
            
            <div className="flex justify-center gap-10 mt-20 flex-col  md:flex-row pl-10 lg:flex-row lg:row-span-4 md:pl-0">
             {
-                services.map(service => <ServicesCard key={service._id} service={service}></ServicesCard>)
+                services.map(service => <Card key={service._id} service={service}></Card>)
             }
            </div>
         
