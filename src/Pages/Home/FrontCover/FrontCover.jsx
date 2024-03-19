@@ -3,7 +3,9 @@
 const FrontCover = () => {
     return (
         <div className="bg-[#ED1B24] font-jost text-[#ffff] p-2"> 
-                <marquee>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eveniet tempora delectus fugit voluptatem temporibus iure praesentium quasi explicabo tempore soluta animi harum cupiditate culpa, inventore aliquam iste enim in?</marquee>
+                <marquee>In this evaluation, we invite you to demonstrate your skills and creativity by creating a 
+simple Mobile Financial Service (MFS) application akin to popular platforms like bKash or 
+Nagad.</marquee>
         </div>
     );
 };

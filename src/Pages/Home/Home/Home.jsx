@@ -1,5 +1,6 @@
 // import Banner from "../Banner/Banner";
 
+import Footer from "../../Footer/Footer";
 import CaruselBanner from "../Banner/CaruselBanner/CaruselBanner";
 import FrontCover from "../FrontCover/FrontCover";
 import MobileAppBanner from "../MobileAppBanner/MobileAppBanner";
@@ -14,6 +15,7 @@ const Home = () => {
       <CaruselBanner></CaruselBanner>
       <Services></Services>
       <MobileAppBanner/>
+      <Footer/>
     </div>
   );
 };
