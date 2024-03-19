@@ -7,6 +7,8 @@ import Home from "../Pages/Home/Home/Home";
 
 import SignUp from "../Pages/SighnUp/SignUp";
 import Login from "../Pages/Login/Login";
+import  ApplicationFrom  from "../Components/JoinApplicationFrom/ApplicationFrom"
+import Private from "../Private/Private";
 
 
   export const router = createBrowserRouter([
@@ -25,7 +27,11 @@ import Login from "../Pages/Login/Login";
          },{
           path:'/login',
           element:<Login></Login>
+         },{
+          path:'/joinUs',
+          element:<Private><ApplicationFrom/></Private>
          }
+         
        ]
      
     }

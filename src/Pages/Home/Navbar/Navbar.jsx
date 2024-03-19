@@ -131,7 +131,7 @@ const Navbar = () => {
         <a>Career</a>
       </NavLink>
       <NavLink
-        to="contact"
+        to="joinUs"
         className={({ isActive }) =>
           isActive
             ? "  font-roboto text-[18px] font-semibold px-2 py-1 rounded text-[#ED1B24]"
@@ -199,9 +199,8 @@ const Navbar = () => {
           <div className="navbar-end  flex lg:mr-10 gap-5 ml-32 md:ml-96">
            
            
-           <SignedOut>
-        <SignInButton className="bg-red-500 px-2 py-1 text-white rounded-md font-semibold" />
-      </SignedOut>
+        
+      
       <SignedIn className ="bg-red-500 px-2 py-1 text-white rounded-md font-semibold">
         <UserButton />
       </SignedIn>
